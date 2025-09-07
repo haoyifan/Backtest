@@ -1,0 +1,21 @@
+Backtest Duration
+Start date: 2010 Jan 1
+End date: 2024 Dec 31
+
+Initial capital: $100,000
+
+Instrument: SPY
+
+Strategy 1
+Rebalance every year. Everytime when rebalance, keep 80% of value in SPY, and the rest of 20% to buy the longest ATM call
+Total return: 1200.89%
+
+
+Strategy 2
+Buy and hold.
+Total return: 479.57%
+
+
+Strategy 3
+Enhanced buy and hold. Buy the same amount of call and put leap options that cover the underlying securities. This is to make sure the draw down is small and we are prepared for the market crash
+Total return: 402.47%
