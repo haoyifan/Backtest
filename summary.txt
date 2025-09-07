@@ -19,3 +19,7 @@ Total return: 479.57%
 Strategy 3
 Enhanced buy and hold. Buy the same amount of call and put leap options that cover the underlying securities. This is to make sure the draw down is small and we are prepared for the market crash
 Total return: 402.47%
+
+Strategy 4
+Same as Strategy 1 but inject 10k cash to the account every year
+Total return: 1909.06%

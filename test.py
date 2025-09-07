@@ -39,6 +39,7 @@ class SpyLeapCallStrategy(QCAlgorithm):
         self.put_cost_basis = 0.0
         self.stock_year_start_value = 0.0
         self.buy_and_hold_finished = False
+        self.inject_cash = 10000
 
     def option_filter(self, universe):
         return universe.strikes(-5, 5).expiration(365, 1500)
@@ -59,9 +60,9 @@ class SpyLeapCallStrategy(QCAlgorithm):
         return atm_contract
 
     def calculate_positions(self, atm_call_contract, atm_put_contract):
-        # return self.stock_80_call_20(atm_call_contract)
+        return self.stock_80_call_20(atm_call_contract)
         # return self.buy_and_hold()
-        return self.enhanced_buy_and_hold(atm_call_contract, atm_put_contract)
+        # return self.enhanced_buy_and_hold(atm_call_contract, atm_put_contract)
 
     def buy_and_hold(self):
         if self.buy_and_hold_finished:
@@ -189,6 +190,10 @@ class SpyLeapCallStrategy(QCAlgorithm):
         self.debug(f"Stock profit is {profit}. Growth {growth}")
 
         self.new_year_delay = 3
+
+        if self.inject_cash != 0:
+            self.Portfolio.CashBook["USD"].AddAmount(self.inject_cash)
+            self.debug(f"Injected {self.inject_cash} to the account by year end")
 
         self.debug(f"===========================")
         self.debug(f"Finish year {self.time.year}")
